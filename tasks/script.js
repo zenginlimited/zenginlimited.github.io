@@ -36,18 +36,18 @@ const formatDateTime = date => {
 
 const saveTasks = () => localStorage.setItem(TASKS_KEY, JSON.stringify(localTasks));
 if (localTasks.length > 0) {
-	localTasks.splice(0, localTasks.length, localTasks.filter(({ id }) => id));
+	localTasks.splice(0, localTasks.length, ...localTasks.filter(({ id }) => id));
 	saveTasks();
 }
 
 const applySortAndFilter = taskArray => {
-	const filtered = [...taskArray];
-	const { filters } = DOM.filterBy;
+	const filtered = [...taskArray]
+		, { filters } = DOM.filterBy;
 	if (!filters.has('showAll')) {
 		for (const filter of filters.values()) {
 			switch (filter) {
-			case 'hideCompleted': filtered.splice(0, filtered.length, filtered.filter(t => !t.completed)); break;
-			case 'hideGroupTasks': filtered.splice(0, filtered.length, filtered.filter(t => -1 === tasks.findIndex(({ id }) => id === t.id)))
+			case 'hideCompleted': filtered.splice(0, filtered.length, ...filtered.filter(t => !t.completed)); break;
+			case 'hideGroupTasks': filtered.splice(0, filtered.length, ...filtered.filter(t => -1 === tasks.findIndex(({ id }) => id === t.id)))
 			}
 		}
 	}
@@ -364,11 +364,11 @@ DOM.deleteModal.addEventListener('close', function() {
 	if (this.returnValue !== 'submit' || !taskId) return;
 	let task = tasks.find(({ id }) => id === taskId);
 	if (task) {
-		tasks.splice(0, tasks.length, tasks.filter(({ id }) => id !== taskId));
+		tasks.splice(0, tasks.length, ...tasks.filter(({ id }) => id !== taskId));
 	} else {
 		task = localTasks.find(({ id }) => id === parseInt(taskId));
 		if (!task) return;
-		localTasks.splice(0, localTasks.length, localTasks.filter(({ id }) => id !== parseInt(taskId)));
+		localTasks.splice(0, localTasks.length, ...localTasks.filter(({ id }) => id !== parseInt(taskId)));
 		saveTasks();
 	}
 	// saveTasks();
@@ -419,7 +419,7 @@ DOM.taskForm.querySelector('#task-desc').addEventListener('input', function() {
 
 renderTasks();
 fetchWithCredentials('tasks').then(r => {
-	tasks.splice(0, tasks.length, r);
+	tasks.splice(0, tasks.length, ...r);
 	renderTasks()
 });
 

@@ -226,6 +226,7 @@ main:has(#personal-task-list:empty):has(#task-list:empty)::before {
 	width: fit-content;
 }
 
+:is(#personal-task-list, #task-list):empty,
 :has(#personal-task-list:empty) body > main > :is(details),
 :has(:is(#personal-task-list, #task-list):empty) body > main > :is(hr) { display: none }
 
