@@ -1,4 +1,4 @@
-const API_URL = 'http://api.zengin.ca/'
+const API_URL = '//api.zengin.ca/'
 	, TASKS_KEY = 'tasks'
 	, localTasks = JSON.parse(localStorage.getItem(TASKS_KEY)) || []
 	, tasks = [];
