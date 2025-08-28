@@ -1,0 +1,14 @@
+body { font-size: clamp(.75rem, 2vmin, 1.1rem) }
+
+#timetable > caption { margin-bottom: .75em }
+#timetable > thead { text-align: left }
+#timetable > tbody { font-family: monospace }
+#timetable > tbody td, #timetable > thead th { padding-right: clamp(.5rem, 1.5vw, 3rem) }
+/* #timetable > tbody td:not(:first-child) { font-family: monospace } */
+
+#timetable > tbody:has(td.date) { counter-reset: date }
+#timetable > tbody td.date { counter-increment: date }
+#timetable > tbody td.date::before {
+	content: counter(date);
+	font-weight: bold;
+}

@@ -1,0 +1,30 @@
+body { font-size: clamp(1.75rem, 6vmin, 3.25rem) }
+
+.time-remaining:empty { display: none }
+.time-remaining {
+	align-items: flex-start;
+	display: flex;
+	flex-direction: column;
+	float: right;
+	font-size: .75em;
+	line-height: normal;
+	margin-bottom: .5em;
+}
+
+.time-remaining::before {
+	content: attr(data-prayer) " is in" !important;
+	display: block;
+	font-size: .4em;
+}
+
+[data-prayer] { text-align: right }
+[data-prayer]::before {
+	color: hsl(0 0% 100% / 75%);
+	content: attr(data-prayer);
+	float: left;
+	font-weight: bold;
+	margin-right: 1em;
+}
+
+[data-prayer].ongoing::before { color: revert }
+[data-prayer].passed, [data-prayer].passed::before { color: hsl(0 0% 100% / 30%) }
