@@ -27,6 +27,16 @@
 		</div>
 		<div class="controls">
 			<input type="checkbox" id="controls" checked hidden>
+			<script>
+			{
+				const script = document.currentScript
+					, a = document.createElement('a');
+				a.classList.add('btn');
+				a.href = 'https://auth.zengin.ca/?return=' + location.href;
+				a.textContent = 'Sign in';
+				script.replaceWith(a);
+			}
+			</script>
 			<select id="sort-by" aria-label="Sort by">
 				<option disabled>Sort by</option>
 				<option value="added" selected>Date Added</option>
