@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 	<title>Task Manager</title>
 	<link rel="stylesheet" href="style.css">
-	<script src="https://cdn.zengin.ca/assets/scripts/builders/Toast.js" defer></script>
+	<script src="/cdn/services/toast.js" defer></script>
 </head>
 <body>
 	<header>
@@ -71,7 +71,7 @@
 			<input type="text" id="task-title" placeholder="Title" required>
 			<textarea id="task-desc" placeholder="Notes"></textarea>
 			<label title="Create a personal task only you can view">
-				<input type="checkbox" id="create-personal-task">
+				<input type="checkbox" id="create-personal-task" checked disabled>
 				<small>Create personal task</small>
 			</label>
 			<label title="Mark a completed task as incomplete">
