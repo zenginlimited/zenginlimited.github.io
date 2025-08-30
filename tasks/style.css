@@ -1,24 +1,24 @@
 :root {
-	--accent-hue: 160deg;
-	--accent-color: hsl(var(--accent-hue) 75% 33%);
-	--accent-hover: hsl(var(--accent-hue) 75% 40%);
-	--base-hue: 230deg;
-	--text-color: hsl(0 0% 85%);
-	accent-color: var(--accent-color);
+	--hue-accent: 160deg;
+	--hue-base: 230deg;
+	--color-accent: hsl(var(--hue-accent) 75% 33%);
+	--color-accent-hover: hsl(var(--hue-accent) 75% 40%);
+	--color-text: hsl(0 0% 85%);
+	accent-color: var(--color-accent);
 	color-scheme: dark;
-	/* scrollbar-color: var(--accent-color) transparent; */
-	scrollbar-color: hsl(218 10% 60% / 40%) transparent;
+	/* scrollbar-color: var(--color-accent) transparent; */
+	scrollbar-color: hsl(var(--hue-base) 10% 60% / 40%) transparent;
 }
 
 html {
-	background: hsl(var(--base-hue) 20% 8%);
+	background-color: hsl(var(--hue-base) 20% 8%);
 	height: 100%;
 }
 
 body {
 	-webkit-tap-highlight-color: transparent;
 	box-sizing: border-box;
-	color: var(--text-color);
+	color: var(--color-text);
 	display: flex;
 	flex-direction: column;
 	font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -29,11 +29,11 @@ body {
 }
 
 @media (hover: hover) {
-	a:hover { color: var(--accent-hover) }
+	a:hover { color: var(--color-accent-hover) }
 }
 
 @media (hover: none) {
-	a:active { color: var(--accent-hover) }
+	a:active { color: var(--color-accent-hover) }
 }
 
 body > header {
@@ -70,11 +70,11 @@ header > .top {
 }
 
 @media (hover: hover) {
-	a:hover .logo { color: var(--accent-hover) }
+	a:hover .logo { color: var(--color-accent-hover) }
 }
 
 @media (hover: none) {
-	a:active .logo { color: var(--accent-hover) }
+	a:active .logo { color: var(--color-accent-hover) }
 }
 
 .header-right {
@@ -191,7 +191,7 @@ header > .top {
 
 @media (hover: hover) {
 	.icon-button:hover > svg {
-		fill: var(--accent-hover);
+		fill: var(--color-accent-hover);
 		scale: 1.075;
 	}
 
@@ -200,7 +200,7 @@ header > .top {
 
 @media (hover: none) {
 	.icon-button:active > svg {
-		fill: var(--accent-hover);
+		fill: var(--color-accent-hover);
 		scale: .95;
 	}
 }
@@ -255,7 +255,7 @@ body > main {
 
 /* .task-list::-webkit-scrollbar { width: 4px }
 .task-list::-webkit-scrollbar-thumb {
-	background: var(--accent-color);
+	background: var(--color-accent);
 	border-radius: 2px;
 } */
 
@@ -293,7 +293,7 @@ body > main {
 .task.completed .task-header { pointer-events: none }
 .task.completed .task-title {
 	text-decoration: line-through;
-	text-decoration-color: var(--accent-color);
+	text-decoration-color: var(--color-accent);
 	text-decoration-thickness: 2px;
 	color: #a6a6a6;
 }
@@ -385,14 +385,14 @@ body > main {
 
 @media (hover: hover) {
 	.task-actions svg:hover {
-		color: var(--accent-hover);
+		color: var(--color-accent-hover);
 		transform: scale(1.1);
 	}
 	.task-actions svg.delete-btn:hover { color: hsl(0 35% 45%) }
 }
 @media (hover: none) {
 	.task-actions svg:active {
-		color: var(--accent-hover);
+		color: var(--color-accent-hover);
 		transform: scale(1.1);
 	}
 	.task-actions svg.delete-btn:active { color: hsl(0 35% 45%) }
@@ -444,7 +444,6 @@ body > main {
 
 .modal h2 {
 	font-size: 20px;
-	color: var(--accent-color);
 	margin-bottom: 20px;
 }
 
@@ -505,7 +504,7 @@ body > main {
 	border-color: #161c26;
 	/* outline: none; */
 	/* outline: 2px solid hsl(218 27% 20%); */
-	outline: 2px solid var(--accent-color);
+	outline: 2px solid var(--color-accent);
 }
 
 .modal .action-row {
@@ -516,7 +515,7 @@ body > main {
 .modal .action-row > button { width: 100% }
 .modal button[type="submit"] { font-weight: bold }
 .modal button {
-	background: var(--accent-color);
+	background-color: var(--color-accent);
 	border: none;
 	color: #0a0e14;
 	border-radius: 6px;
@@ -528,16 +527,39 @@ body > main {
 	touch-action: manipulation;
 }
 
-.modal :not(.action-row) > button {
-	margin: .4em;
-}
+.modal :not(.action-row) > button { margin: .4em }
 
 @media (hover: hover) {
-	.modal button:hover { background: var(--accent-hover) }
+	.modal button:hover { background-color: var(--color-accent-hover) }
 }
 
 @media (hover: none) {
-	.modal button:active { background: var(--accent-hover) }
+	.modal button:active { background-color: var(--color-accent-hover) }
+}
+
+.modal .btn-close {
+	background: none !important;
+	border: 1px solid currentColor;
+	color: hsl(var(--hue-base) 5% 65%);
+}
+
+@media (hover: hover) {
+	.btn-close:hover { color: hsl(var(--hue-base) 10% 40%) }
+}
+
+@media (hover: none) {
+	.btn-close:active { color: hsl(var(--hue-base) 10% 40%) }
+}
+
+#confirm-delete { background: var(--color-accent-hover) }
+#delete-modal > h2 { color: hsl(0 35% 45%) }
+#delete-modal button { background-color: hsl(0 45% 55%) }
+@media (hover: hover) {
+	#confirm-delete:hover { background-color: hsl(0 35% 40%) }
+}
+
+@media (hover: none) {
+	#confirm-delete:active { background-color: hsl(0 35% 40%) }
 }
 
 .modal button:disabled {
@@ -548,54 +570,10 @@ body > main {
 	transform: none;
 }
 
-#confirm-delete { background: var(--accent-hover) }
-#delete-modal > h2 { color: hsl(0 35% 45%) }
-#delete-modal button { background-color: hsl(0 45% 55%) }
-#delete-modal button.btn-close {
-	border-color: hsl(0 45% 55%) !important;
-	color: hsl(0 45% 55%) !important;
-}
-
-@media (hover: hover) {
-	#confirm-delete:hover { background-color: hsl(0 35% 45%) }
-	#delete-modal button.btn-close:hover {
-		border-color: hsl(0 35% 45%) !important;
-		color: hsl(0 35% 45%) !important;
-	}
-}
-
-@media (hover: none) {
-	#confirm-delete:active { background-color: hsl(0 35% 45%) }
-	#delete-modal button.btn-close:active {
-		border-color: hsl(0 35% 45%) !important;
-		color: hsl(0 35% 45%) !important;
-	}
-}
-
-.btn-close {
-	background-color: transparent !important;
-	border: 1px solid var(--accent-color) !important;
-	color: var(--accent-color) !important;
-}
-
-@media (hover: hover) {
-	.btn-close:hover {
-		border: 1px solid var(--accent-hover) !important;
-		color: var(--accent-hover) !important;
-	}
-}
-
-@media (hover: none) {
-	.btn-close:active {
-		border: 1px solid var(--accent-hover) !important;
-		color: var(--accent-hover) !important;
-	}
-}
-
 toast-hub {
 	--toast-brightness: 6%;
 	--toast-saturation: 25%;
-	--toast-tint: var(--base-hue);
+	--toast-tint: var(--hue-base);
 	align-items: center;
 	left: 20px;
 	margin: 0 auto;
