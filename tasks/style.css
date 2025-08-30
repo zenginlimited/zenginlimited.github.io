@@ -83,11 +83,6 @@ header > .top {
 	margin-left: auto;
 }
 
-.disabled {
-	opacity: .5;
-	pointer-events: none;
-}
-
 .controls:has(> :checked) {
 	margin-top: 0;
 	max-height: 0;
@@ -320,6 +315,7 @@ body > main {
 .task-title {
 	flex: 1;
 	font-weight: 500;
+	line-height: 1em;
 	overflow: hidden;
 	text-overflow: ellipsis;
 	white-space: nowrap;
@@ -335,6 +331,7 @@ body > main {
 	content: attr(data-tag);
 	display: inline-block;
 	font-size: .75em;
+	line-height: 1em;
 	margin-right: .65em;
 	max-width: 33%;
 	overflow: hidden;
@@ -677,4 +674,9 @@ header > .top.search-hybrid[contenteditable] * {
 		border-radius: 0;
 		border-right-width: 0;
 	}
+}
+
+.disabled {
+	opacity: .5;
+	pointer-events: none;
 }
