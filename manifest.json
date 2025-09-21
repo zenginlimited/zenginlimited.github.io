@@ -1,0 +1,46 @@
+{
+	"background_color": "#121212",
+	"categories": ["lifestyle", "productivity", "utilities"],
+	"description": "A zengin lifestyle.",
+	"display": "standalone",
+	"display_override": ["fullscreen", "minimal-ui"],
+	"icons": [{
+		"purpose": "any",
+		"sizes": "any",
+		"src": "/favicon.ico"
+	}, {
+		"purpose": "any",
+		"sizes": "any",
+		"src": "/assets/images/icons/favicon.svg",
+		"type": "image/svg+xml"
+	},  {
+		"sizes": "256x256",
+		"src": "/assets/images/icons/favicon.png",
+		"type": "image/png"
+	}],
+	"id": "zengin",
+	"launch_handler": { "client_mode": "navigate-existing" },
+	"name": "Zengin",
+	"orientation": "portrait",
+	"protocol_handlers": [{
+		"protocol": "web+zengin",
+		"url": "/%s"
+	}, {
+		"protocol": "web+zl",
+		"url": "/%s"
+	}],
+	"scope": "/",
+	"scope_extensions": [
+		{ "type": "origin", "origin": "https://auth.zengin.ca"},
+		{ "type": "origin", "origin": "https://cdn.zengin.ca"}
+	],
+	"screenshots": [],
+	"short_name": "Zengin",
+	"shortcuts": [{
+		"name": "Task Manager",
+		"short_name": "Tasks",
+		"url": "hours"
+	}],
+	"start_url": "/",
+	"theme_color": "#4b957e"
+}
